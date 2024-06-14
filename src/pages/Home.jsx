@@ -1,14 +1,25 @@
-
+import { useRef } from 'react';
+import landingVideo from '../assets/home-landing-loop.mp4'
+import About from './About';
 
 export default function Home() {
+
+    const ref = useRef(null);
+
+    const handleAboutScroll = () => {
+        ref.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return (
-        <div className="container m-20">
-            <div>Home</div>
-            <button className="border-2 border-solid border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none">
-                Hover me
-            </button>
-            <DrawOutlineButton>Hello</DrawOutlineButton>
-        </div>
+        <>
+            <div className="relative w-full h-screen">
+                <video src={landingVideo} autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-center justify-center text-2xl font-extrabold">
+                    <DrawOutlineButton className='text-2xl font-extrabold' onClick={handleAboutScroll}>ECO FILM SPEED</DrawOutlineButton>
+                </div>
+            </div>
+            <About ref={ref} />
+        </>
     )
 }
 

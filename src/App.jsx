@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
 import { Logo } from "./Logo.jsx";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
@@ -9,6 +9,7 @@ import Error from "./pages/Error.jsx";
 export function Layout() {
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [showNavbar, setShowNavbar] = React.useState(false);
 
   const menuItems = [
     { label: "Work", href: "#" },
@@ -16,46 +17,63 @@ export function Layout() {
     { label: "Contact", href: "#" }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 600) { // Adjust this value as needed
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <Navbar onMenuOpenChange={setIsMenuOpen} >
-        <NavbarContent>
-          <NavbarMenuToggle
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden"
-          />
-          <NavbarBrand>
-            <Logo />
-            <p className="font-bold text-inherit">ECO FILM SPEED</p>
-          </NavbarBrand>
-        </NavbarContent>
+      <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-150 ${showNavbar ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
+        <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-neutral-900 bg-opacity-10">
+          <NavbarContent>
+            <NavbarMenuToggle
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              className="sm:hidden"
+            />
+            <NavbarBrand>
+              <Logo />
+              <p className="font-bold text-black">ECO FILM SPEED</p>
+            </NavbarBrand>
+          </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="end">
-          {menuItems.map((item, index) => (
-            <NavbarItem key={index}>
-              <Link color="foreground" href={item.href} aria-current={item.ariaCurrent}>
-                {item.label}
-              </Link>
-            </NavbarItem>
-          ))}
-        </NavbarContent>
+          <NavbarContent className="hidden sm:flex gap-4" justify="end">
+            {menuItems.map((item, index) => (
+              <NavbarItem key={index}>
+                <Link className="text-black" href={item.href} aria-current={item.ariaCurrent}>
+                  {item.label}
+                </Link>
+              </NavbarItem>
+            ))}
+          </NavbarContent>
 
-        <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={index}>
-              <Link
-                color={"foreground"}
-                className="w-full"
-                href={item.href}
-                size="lg"
-                aria-current={item.ariaCurrent}
-              >
-                {item.label}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
-      </Navbar>
+          <NavbarMenu className="bg-neutral-900 bg-opacity-10 max-h-[20vh] overflow-y-auto p-4">
+            {menuItems.map((item, index) => (
+              <NavbarMenuItem key={index}>
+                <Link
+                  className="w-full text-black"
+                  href={item.href}
+                  size="lg"
+                  aria-current={item.ariaCurrent}
+                >
+                  {item.label}
+                </Link>
+              </NavbarMenuItem>
+            ))}
+          </NavbarMenu>
+        </Navbar>
+      </div>
       <Outlet />
     </>
   );
