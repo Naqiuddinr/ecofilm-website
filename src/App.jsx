@@ -13,7 +13,6 @@ export function Layout() {
 
   const menuItems = [
     { label: "Work", href: "#" },
-    { label: "About", href: "#" },
     { label: "Contact", href: "#" }
   ];
 

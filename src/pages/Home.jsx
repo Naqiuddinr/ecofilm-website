@@ -5,10 +5,10 @@ import Section from './components/Section';
 
 export default function Home() {
 
-    const ref = useRef(null);
+    const aboutRef = useRef(null);
 
     const handleAboutScroll = () => {
-        ref.current?.scrollIntoView({ behavior: 'smooth' })
+        aboutRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
 
     return (
@@ -19,7 +19,7 @@ export default function Home() {
                     <DrawOutlineButton className='text-2xl font-extrabold' onClick={handleAboutScroll}>ECO FILM SPEED</DrawOutlineButton>
                 </div>
             </div>
-            <About ref={ref} />
+            <About ref={aboutRef} />
             <Section />
         </>
     )
