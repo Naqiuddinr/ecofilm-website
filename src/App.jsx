@@ -35,7 +35,7 @@ export function Layout() {
   return (
     <>
       <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-150 ${showNavbar ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
-        <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-neutral-900 bg-opacity-10">
+        <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white bg-opacity-10 border-b-1">
           <NavbarContent>
             <NavbarMenuToggle
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -43,7 +43,7 @@ export function Layout() {
             />
             <NavbarBrand>
               <Logo />
-              <p className="font-bold text-black">ECO FILM SPEED</p>
+              <p className="ms-2 font-bold text-black">ECO FILM SPEED</p>
             </NavbarBrand>
           </NavbarContent>
 
