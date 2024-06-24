@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import landingVideo from '../assets/home-landing-loop.mp4'
 import About from './About';
 import Section from './components/Section';
+import Footer from './components/Footer';
+import { FullLogo } from '../components/FullLogo';
 
 export default function Home() {
 
@@ -16,11 +18,14 @@ export default function Home() {
             <div className="relative w-full h-screen">
                 <video src={landingVideo} autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 flex items-center justify-center text-2xl font-extrabold">
-                    <DrawOutlineButton className='text-2xl font-extrabold' onClick={handleAboutScroll}>ECO FILM SPEED</DrawOutlineButton>
+                    <DrawOutlineButton className='text-2xl font-extrabold' onClick={handleAboutScroll}>
+                        <FullLogo />
+                    </DrawOutlineButton>
                 </div>
             </div>
             <About ref={aboutRef} />
             <Section />
+            <Footer />
         </>
     )
 }

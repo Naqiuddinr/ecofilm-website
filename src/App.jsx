@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
-import { Logo } from "./Logo.jsx";
+import { Logo } from "./components/Logo.jsx";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Error from "./pages/Error.jsx";
@@ -12,7 +12,7 @@ export function Layout() {
   const [showNavbar, setShowNavbar] = React.useState(false);
 
   const menuItems = [
-    { label: "Work", href: "#" },
+    { label: "Work", href: "work" },
     { label: "Contact", href: "#" }
   ];
 
