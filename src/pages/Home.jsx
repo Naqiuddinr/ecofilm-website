@@ -12,7 +12,7 @@ export default function Home() {
     const [showNavbar, setShowNavbar] = useState(false);
 
     const handleAboutScroll = () => {
-        aboutRef.current?.scrollIntoView({ behavior: 'smooth' })
+        document.getElementById('about').scrollIntoView({ behavior: 'smooth' })
     }
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export default function Home() {
             <div className="relative w-full h-screen">
                 <video src={landingVideo} autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover" />
                 <div href='#about' className="absolute inset-0 flex items-center justify-center text-2xl font-extrabold">
-                    <DrawOutlineButton className='text-2xl font-extrabold' href='#about' onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>
+                    <DrawOutlineButton className='text-2xl font-extrabold' href='#about' onClick={handleAboutScroll}>
                         <FullLogo href='#about' />
                     </DrawOutlineButton>
                 </div>

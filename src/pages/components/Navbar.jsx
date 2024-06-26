@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
 import { Logo } from "../../components/Logo.jsx";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 export function NavigationBar({ className }) {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const menuItems = [
         { label: "About Us", href: "#about" },
         { label: "Our Work", href: "#work" },
         { label: "Contact", href: "#contact" },
     ];
+
+    const handleHomeClick = () => {
+        if (location.pathname === '/') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            navigate('/');
+        }
+    };
 
     return (
         <>
@@ -22,7 +32,7 @@ export function NavigationBar({ className }) {
                             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                             className="sm:hidden"
                         />
-                        <NavbarBrand>
+                        <NavbarBrand onClick={handleHomeClick} className="cursor-pointer">
                             <Logo />
                             <p className="ms-2 font-bold text-black">ECO FILM SPEED</p>
                         </NavbarBrand>

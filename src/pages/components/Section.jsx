@@ -8,7 +8,7 @@ const AnimatedDiv = ({ to, children }) => {
     return (
         <>
             <Link to={to}>
-                <div className="transition border border-black bg-white text-black hover:bg-black hover:text-white hover:cursor-pointer">
+                <div className="transition border rounded-xl border-black bg-white text-black hover:bg-black hover:text-white hover:cursor-pointer">
                     <h2 className="text-3xl font-bold mt-12 mb-8 relative z-10 ms-4 ">
                         {children}
                     </h2>
