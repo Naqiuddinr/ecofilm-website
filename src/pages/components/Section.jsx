@@ -22,7 +22,7 @@ const Section = () => {
     return (
 
         <div id="work" className="container mx-auto p-8">
-            <h2 className="text-3xl text-black font-bold mt-4 mb-4">Our Work</h2>
+            <h2 className="text-3xl text-black font-bold mt-10 mb-4">Our Work</h2>
             <div className="flex flex-col space-y-4">
                 <AnimatedDiv to={"#"}>Music Video</AnimatedDiv>
                 <AnimatedDiv to={"#"}>Product Shoot</AnimatedDiv>

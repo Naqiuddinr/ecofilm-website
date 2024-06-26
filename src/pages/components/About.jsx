@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 
 function About(props, ref) {
     return (
-        <div ref={ref} className="container mx-auto p-8">
+        <div id='about' ref={ref} className="container mx-auto p-8">
             <h2 className="text-3xl text-black font-bold mt-10 mb-4">About Us</h2>
             <p className="text-lg">
                 1914 translation by H. Rackham

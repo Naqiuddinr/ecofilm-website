@@ -1,10 +1,10 @@
 import React from 'react'
-import { NavigationBar } from '../../components/Navbar'
+import { NavigationBar } from './Navbar'
 
 export default function Footer() {
     return (
         <>
-            <div className='bg-black text-white min-h-20 items-center'>
+            <div id='contact' className='bg-black text-white min-h-20 items-center'>
                 <div className='text-center flex justify-center mt-4'>
                     <p className=' mt-4 mb-2'>Chat with us at</p>
                 </div>

@@ -1,37 +1,21 @@
 import { useEffect, useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
-import { Logo } from "./Logo.jsx";
+import { Logo } from "../../components/Logo.jsx";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 
-export function NavigationBar() {
+export function NavigationBar({ className }) {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [showNavbar, setShowNavbar] = useState(false);
 
     const menuItems = [
-        { label: "Work", href: "#" },
-        { label: "Contact", href: "#" }
+        { label: "About Us", href: "#about" },
+        { label: "Our Work", href: "#work" },
+        { label: "Contact", href: "#contact" },
     ];
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 600) { // Adjust this value as needed
-                setShowNavbar(true);
-            } else {
-                setShowNavbar(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     return (
         <>
-            <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-150 ${showNavbar ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
+            <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-150 ${className}`}>
                 <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white bg-opacity-10 border-b-1">
                     <NavbarContent>
                         <NavbarMenuToggle

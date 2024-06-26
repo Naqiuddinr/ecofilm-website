@@ -1,25 +1,44 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import landingVideo from '../assets/home-landing-loop.mp4'
-import About from './About';
+import About from './components/About';
 import Section from './components/Section';
 import Footer from './components/Footer';
 import { FullLogo } from '../components/FullLogo';
+import { NavigationBar } from './components/Navbar';
 
 export default function Home() {
 
     const aboutRef = useRef(null);
+    const [showNavbar, setShowNavbar] = useState(false);
 
     const handleAboutScroll = () => {
         aboutRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 600) { // Adjust this value as needed
+                setShowNavbar(true);
+            } else {
+                setShowNavbar(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <>
+            <NavigationBar className={showNavbar ? 'transform translate-y-0' : 'transform -translate-y-full'} />
             <div className="relative w-full h-screen">
                 <video src={landingVideo} autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center text-2xl font-extrabold">
-                    <DrawOutlineButton className='text-2xl font-extrabold' onClick={handleAboutScroll}>
-                        <FullLogo />
+                <div href='#about' className="absolute inset-0 flex items-center justify-center text-2xl font-extrabold">
+                    <DrawOutlineButton className='text-2xl font-extrabold' href='#about' onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>
+                        <FullLogo href='#about' />
                     </DrawOutlineButton>
                 </div>
             </div>
