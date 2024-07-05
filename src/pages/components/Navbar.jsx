@@ -13,6 +13,7 @@ export function NavigationBar({ className }) {
         { label: "About Us", href: "#about" },
         { label: "Our Work", href: "#work" },
         { label: "Contact", href: "#contact" },
+        { label: "Timeline", href: "#timeline" },
     ];
 
     const handleHomeClick = () => {
@@ -26,7 +27,7 @@ export function NavigationBar({ className }) {
     return (
         <>
             <div className={`fixed top-0 left-0 w-full z-50 transition-transform duration-150 ${className}`}>
-                <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white bg-opacity-10 border-b-1">
+                <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white bg-opacity-10">
                     <NavbarContent>
                         <NavbarMenuToggle
                             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -56,6 +57,7 @@ export function NavigationBar({ className }) {
                                     href={item.href}
                                     size="lg"
                                     aria-current={item.ariaCurrent}
+                                    onClick={() => setIsMenuOpen(false)}
                                 >
                                     {item.label}
                                 </Link>

@@ -5,6 +5,8 @@ import Section from './components/Section';
 import Footer from './components/Footer';
 import { FullLogo } from '../components/FullLogo';
 import { NavigationBar } from './components/Navbar';
+import Timeline from './components/Timeline';
+
 
 export default function Home() {
 
@@ -38,12 +40,13 @@ export default function Home() {
                 <video src={landingVideo} autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover" />
                 <div href='#about' className="absolute inset-0 flex items-center justify-center text-2xl font-extrabold">
                     <DrawOutlineButton className='text-2xl font-extrabold' href='#about' onClick={handleAboutScroll}>
-                        <FullLogo href='#about' />
+                        <FullLogo href='#timeline' />
                     </DrawOutlineButton>
                 </div>
             </div>
-            <About ref={aboutRef} />
-            <Section />
+            <Timeline />
+            {/* <About ref={aboutRef} /> */}
+            {/* <Section /> */}
             <Footer />
         </>
     )
