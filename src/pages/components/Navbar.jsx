@@ -11,9 +11,8 @@ export function NavigationBar({ className }) {
 
     const menuItems = [
         { label: "About Us", href: "#about" },
-        { label: "Our Work", href: "#work" },
+        { label: "Our Work", href: "#timeline" },
         { label: "Contact", href: "#contact" },
-        { label: "Timeline", href: "#timeline" },
     ];
 
     const handleHomeClick = () => {

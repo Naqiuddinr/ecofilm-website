@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import landingVideo from '../assets/home-landing-loop.mp4'
 import About from './components/About';
 import Section from './components/Section';
@@ -10,11 +10,10 @@ import Timeline from './components/Timeline';
 
 export default function Home() {
 
-    const aboutRef = useRef(null);
     const [showNavbar, setShowNavbar] = useState(false);
 
     const handleAboutScroll = () => {
-        document.getElementById('about').scrollIntoView({ behavior: 'smooth' })
+        document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' })
     }
 
     useEffect(() => {
@@ -38,9 +37,9 @@ export default function Home() {
             <NavigationBar className={showNavbar ? 'transform translate-y-0' : 'transform -translate-y-full'} />
             <div className="relative w-full h-screen">
                 <video src={landingVideo} autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover" />
-                <div href='#about' className="absolute inset-0 flex items-center justify-center text-2xl font-extrabold">
-                    <DrawOutlineButton className='text-2xl font-extrabold' href='#about' onClick={handleAboutScroll}>
-                        <FullLogo href='#timeline' />
+                <div className="absolute inset-0 flex items-center justify-center text-2xl font-extrabold">
+                    <DrawOutlineButton className='text-2xl font-extrabold' onClick={handleAboutScroll}>
+                        <FullLogo />
                     </DrawOutlineButton>
                 </div>
             </div>

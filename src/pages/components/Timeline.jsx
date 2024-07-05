@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import landingVideo from '../../assets/home-landing-loop.mp4'
 
 export default function Timeline() {
@@ -14,7 +14,6 @@ export default function Timeline() {
         </>
     )
 }
-
 
 function WorkDisplay() {
 
