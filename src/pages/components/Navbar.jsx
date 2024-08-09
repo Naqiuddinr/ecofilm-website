@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
 import { Logo } from "../../components/Logo.jsx";
-import { BrowserRouter, Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 export function NavigationBar({ className }) {
 
@@ -10,7 +10,7 @@ export function NavigationBar({ className }) {
     const navigate = useNavigate();
 
     const menuItems = [
-        { label: "About Us", href: "#about" },
+        { label: "About Us", href: "about" },
         { label: "Our Work", href: "#timeline" },
         { label: "Contact", href: "#contact" },
     ];
