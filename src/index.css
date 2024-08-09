@@ -7,5 +7,5 @@ html {
 }
 
 body {
-    @apply font-sans;
+    font-family: 'Courier Prime', monospace;
 }

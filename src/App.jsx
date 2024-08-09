@@ -4,6 +4,7 @@ import { Logo } from "./components/Logo.jsx";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Error from "./pages/Error.jsx";
+import Display from "./pages/Display.jsx";
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Error />} />
+        <Route path="/video/:id" element={<Display />} />
       </Routes>
     </BrowserRouter>
   );

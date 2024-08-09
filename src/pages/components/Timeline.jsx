@@ -1,5 +1,6 @@
-import React, { forwardRef } from 'react'
-import landingVideo from '../../assets/home-landing-loop.mp4'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { videoData } from '../../assets/videoData'
 
 export default function Timeline() {
     return (
@@ -7,7 +8,6 @@ export default function Timeline() {
             <div id='timeline' className="container mx-auto p-8">
                 <h2 className="text-3xl text-black font-bold mt-10 mb-4">Our Work</h2>
                 <div>
-                    <WorkDisplay />
                     <WorkDisplay />
                 </div>
             </div>
@@ -17,28 +17,28 @@ export default function Timeline() {
 
 function WorkDisplay() {
 
+    const navigate = useNavigate();
+
     return (
         <>
             <div className="container mx-auto">
                 <div className="flex flex-wrap -mx-4">
-                    <div className="w-full h-auto md:w-1/2 p-0">
-                        <video src={landingVideo} autoPlay loop muted className="w-full h-3/4 object-cover filter grayscale hover:filter-none cursor-pointer" />
-                        <p>Sample Video 1</p>
-                    </div>
-                    <div className="w-full md:w-1/2 p-0">
-                        <video src={landingVideo} autoPlay loop muted className="w-full h-3/4 object-cover filter grayscale hover:filter-none cursor-pointer" />
-                        <p>Sample Video 2</p>
-                    </div>
-                </div>
-                <div className="flex flex-wrap -mx-4">
-                    <div className="w-full h-auto md:w-1/2 p-0">
-                        <video src={landingVideo} autoPlay loop muted className="w-full h-3/4 object-cover filter grayscale hover:filter-none cursor-pointer" />
-                        <p>Sample Video 3</p>
-                    </div>
-                    <div className="w-full md:w-1/2 p-0">
-                        <video src={landingVideo} autoPlay loop muted className="w-full h-3/4 object-cover filter grayscale hover:filter-none cursor-pointer" />
-                        <p>Sample Video 4</p>
-                    </div>
+                    {Object.entries(videoData).map(([id, video]) => (
+                        <div
+                            key={id}
+                            className="w-full h-auto md:w-1/2 p-0"
+                            onClick={() => navigate(`/video/${id}`)}
+                        >
+                            <video
+                                src={video.src}
+                                autoPlay
+                                loop
+                                muted
+                                className="w-full h-3/4 object-cover filter grayscale hover:filter-none cursor-pointer"
+                            />
+                            <p>{video.title}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </>
