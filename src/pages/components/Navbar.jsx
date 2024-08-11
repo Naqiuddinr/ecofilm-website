@@ -10,8 +10,8 @@ export function NavigationBar({ className }) {
     const navigate = useNavigate();
 
     const menuItems = [
-        { label: "About Us", href: "about" },
-        { label: "Our Work", href: "#timeline" },
+        { label: "About Us", href: "/about" },
+        { label: "Our Work", href: "/#timeline" },
         { label: "Contact", href: "#contact" },
     ];
 

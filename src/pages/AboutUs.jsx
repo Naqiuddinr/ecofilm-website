@@ -1,7 +1,11 @@
 import React from 'react'
+import { NavigationBar } from './components/Navbar'
 
 export default function AboutUs() {
     return (
-        <div>AboutUs</div>
+        <>
+            <NavigationBar />
+            <div>AboutUs</div>
+        </>
     )
 }
