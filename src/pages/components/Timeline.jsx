@@ -34,7 +34,7 @@ function WorkDisplay() {
                                 autoPlay
                                 loop
                                 muted
-                                className="w-full h-3/4 object-cover filter grayscale hover:filter-none cursor-pointer"
+                                className="w-full h-3/4 object-cover hover:filter hover:grayscale cursor-pointer transition-all duration-300"
                             />
                             <p>{video.title}</p>
                         </div>
