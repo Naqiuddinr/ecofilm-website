@@ -26,11 +26,11 @@ function WorkDisplay() {
                     {Object.entries(videoData).map(([id, video]) => (
                         <div
                             key={id}
-                            className="w-full h-auto md:w-1/2 p-0"
+                            className="w-full h-auto md:w-1/2 p-0 px-2"
                             onClick={() => navigate(`/video/${id}`)}
                         >
                             <video
-                                src={video.src}
+                                src={video.loop}
                                 autoPlay
                                 loop
                                 muted
