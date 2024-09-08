@@ -15,7 +15,9 @@ export default function Footer() {
                     <a href="mailto:someone@mail.com" onclick="window.location=another.html">
                         <i className="bi bi-envelope me-6" style={{ fontSize: "25px" }}></i>
                     </a>
-                    <i className="bi bi-instagram me-6" style={{ fontSize: "25px" }}></i>
+                    <a href='https://www.instagram.com/cyber_filmspeed/' target='_blank' rel='noopener noreferrer'>
+                        <i className="bi bi-instagram me-6" style={{ fontSize: "25px" }}></i>
+                    </a>
                     <i className="bi bi-twitter-x" style={{ fontSize: "25px" }}></i>
                 </div>
                 <div className='text-center text-sm text-[#bcbcbc]'>
