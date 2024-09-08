@@ -7,9 +7,9 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <NextUIProvider>
-      <div className="max-w-full overflow-x-hidden">
-        <App />
-      </div>
+      {/* <div className="max-w-full overflow-x-hidden"> */}
+      <App />
+      {/* </div> */}
     </NextUIProvider>
   </React.StrictMode>,
 )
